@@ -1,0 +1,22 @@
+const weeks = [
+  { week: 1, title: "Cloud Fundamentals", description: "Intro to AWS, IAM basics", img: "/week1.png" },
+  { week: 2, title: "Networking Basics", description: "VPC, subnets, routing", img: "/week2.png" },
+  // Add more weeks...
+];
+
+export default function Progress() {
+  return (
+    <div className="p-8 bg-dark2 min-h-screen">
+      <h2 className="text-3xl text-accent mb-6">Weekly Progress</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {weeks.map((w) => (
+          <div key={w.week} className="bg-dark p-4 rounded-lg shadow hover:shadow-lg hover:shadow-accent/30">
+            <img src={w.img} alt={w.title} className="rounded mb-3" />
+            <h3 className="text-xl font-bold">{`Week ${w.week}: ${w.title}`}</h3>
+            <p className="text-gray-400">{w.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
